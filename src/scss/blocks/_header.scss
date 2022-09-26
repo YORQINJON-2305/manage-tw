@@ -1,3 +1,49 @@
-.body{
-    background-color: red;
+.burger{
+    width: 25px;
+    height: 18px;
+    border: none;
+    background-color: transparent;
+    background-image: url("../images/burger.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: background-image 0.2s;
+}
+
+.site-header.show .burger{
+    background-image: url("../images/close-icon.svg");
+}
+
+.sitenav{
+    width: 100% !important;
+    max-width: 325px !important;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.site-header.show .sitenav{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.overlay{
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.site-header.show ~ .overlay{
+    opacity: 1;
+}
+
+@include mobile-first(768px){
+    .sitenav{
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .burger{
+        display: none;
+    }
 }

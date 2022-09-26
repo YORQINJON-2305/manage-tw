@@ -324,6 +324,7 @@ template {
 *::after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
+  background-image: url("../images/hero-bg-mobile.svg");
 }
 
 html {
@@ -375,11 +376,59 @@ body {
 /* CONTAINER */
 .container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1150px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
-.body {
-  background-color: red;
+.burger {
+  width: 25px;
+  height: 18px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../images/burger.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  -webkit-transition: background-image 0.2s;
+  transition: background-image 0.2s;
+}
+
+.site-header.show .burger {
+  background-image: url("../images/close-icon.svg");
+}
+
+.sitenav {
+  width: 100% !important;
+  max-width: 325px !important;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.site-header.show .sitenav {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.overlay {
+  opacity: 0;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.site-header.show ~ .overlay {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 768px) {
+  .sitenav {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .burger {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */
